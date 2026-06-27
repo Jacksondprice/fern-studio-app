@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fern-studio-app
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: app
+          image: ghcr.io/jacksondprice/fern-studio-app:1.4.0
+          envFrom:
+            - secretRef:
+                name: app-secrets
